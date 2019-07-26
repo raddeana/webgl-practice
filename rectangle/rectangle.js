@@ -2,7 +2,7 @@
 
 function main() {
   // Get A WebGL context
-  var canvas = document.getElementById("c");
+  var canvas = document.getElementById("canvas");
   var gl = canvas.getContext("webgl");
   
   if (!gl) {
