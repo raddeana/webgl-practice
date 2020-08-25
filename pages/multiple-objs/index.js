@@ -18,7 +18,7 @@ function main () {
     return webglUtils.createBufferInfoFromArrays(gl, primitives.makeRandomVertexColors(
       primitives.deindexVertices(vertices), {
         vertsPerColor: 6,
-        rand: function(ndx, channel) {
+        rand: function (ndx, channel) {
           return channel < 3 ? ((128 + Math.random() * 128) | 0) : 255;
         }
       }));
@@ -31,7 +31,6 @@ function main () {
   // setup GLSL prorgram
   var programInfo = webglUtils.createProgramInfo(gl, ["3d-vertex-shader", "3d-fragment-shader"]);
   
-  /
   function degToRad (d) {
     return d * Math.PI / 180;
   }

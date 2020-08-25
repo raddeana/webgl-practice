@@ -3,6 +3,7 @@
 function main() {
   var image = new Image();
   image.src = "https://webglfundamentals.org/webgl/resources/leaves.jpg";  // MUST BE SAME DOMAIN!!!
+  image.crossOrigin = '';
   image.onload = function() {
     render(image);
   };

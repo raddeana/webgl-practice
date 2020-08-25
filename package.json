@@ -1,0 +1,21 @@
+{
+  "name": "webgl-practice",
+  "version": "0.1.1",
+  "description": "webgl practice store",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raddeana/webgl-practice.git"
+  },
+  "keywords": [
+    "webgl",
+    "3d"
+  ],
+  "author": "Philip",
+  "homepage": "https://github.com/raddeana/webgl-practice#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

@@ -357,8 +357,6 @@ function generateMesh (bufferInfo) {
   const arrays = lathePoints(points, data.startAngle, data.endAngle, data.divisions, data.capStart, data.capEnd);
   const extents = getExtents(arrays.position);
 
-  console.log(tempPoints);
-
   if (!bufferInfo) {
     bufferInfo = webglUtils.createBufferInfoFromArrays(gl, arrays);
   } else {

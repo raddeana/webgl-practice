@@ -86,9 +86,6 @@ function main () {
   // Turn on the attribute
   gl.enableVertexAttribArray(positionAttributeLocation);
 
-  // Bind the position buffer.
-  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-
   // Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
   let size = 2;          // 2 components per iteration
   let type = gl.FLOAT;   // the data is 32bit floats
@@ -100,7 +97,6 @@ function main () {
 
   // draw
   let primitiveType = gl.TRIANGLES;
-  let offset = 0;
   let count = 3;
   
   gl.drawArrays(primitiveType, offset, count);

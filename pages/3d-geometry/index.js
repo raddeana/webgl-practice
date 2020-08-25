@@ -468,17 +468,19 @@ function main() {
   // when the image has loaded
   function loadImageAndCreateTextureInfo(url, callback) {
     var tex = gl.createTexture();
+
     gl.bindTexture(gl.TEXTURE_2D, tex);
     // Fill the texture with a 1x1 blue pixel.
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE,
-                  new Uint8Array([0, 0, 255, 255]));
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 255, 255]));
 
     var textureInfo = {
       width: 1,   // we don't know the size until it loads
       height: 1,
       texture: tex,
     };
+
     var img = new Image();
+    img.crossOrigin = '';
     img.addEventListener('load', function() {
       textureInfo.width = img.width;
       textureInfo.height = img.height;

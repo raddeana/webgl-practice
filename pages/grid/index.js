@@ -65,12 +65,12 @@ function main () {
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
     var positions = [
-    -1, 1,
-    -1, 0.9,
-    -0.9, 0.9,
-    -1, 1,
-    -0.9, 1,
-    -0.9, 0.9
+        -1, 1,
+        -1, 0.9,
+        -0.9, 0.9,
+        -1, 1,
+        -0.9, 1,
+        -0.9, 0.9
     ];
 
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);

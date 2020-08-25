@@ -49,20 +49,19 @@ function main() {
   var normalize = false; // don't normalize the data
   var stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
   var offset = 0;        // start at the beginning of the buffer
-  gl.vertexAttribPointer(
-      positionAttributeLocation, size, type, normalize, stride, offset);
+
+  gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
 
   // set the resolution
   gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
 
   // draw 50 random rectangles in random colors
-  for (var ii = 0; ii < 50; ++ii) {
+  for (var ii = 0; ii < 1; ++ii) {
     // Setup a random rectangle
     // This will write to positionBuffer because
     // its the last thing we bound on the ARRAY_BUFFER
     // bind point
-    setRectangle(
-        gl, randomInt(300), randomInt(300), randomInt(300), randomInt(300));
+    setRectangle(gl, 0, 0, gl.canvas.width, gl.canvas.height);
 
     // Set a random color.
     gl.uniform4f(colorUniformLocation, Math.random(), Math.random(), Math.random(), 1);
@@ -71,6 +70,7 @@ function main() {
     var primitiveType = gl.TRIANGLES;
     var offset = 0;
     var count = 6;
+
     gl.drawArrays(primitiveType, offset, count);
   }
 }
@@ -81,11 +81,12 @@ function randomInt(range) {
 }
 
 // Fill the buffer with the values that define a rectangle.
-function setRectangle(gl, x, y, width, height) {
+function setRectangle (gl, x, y, width, height) {
   var x1 = x;
   var x2 = x + width;
   var y1 = y;
   var y2 = y + height;
+
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
      x1, y1,
      x2, y1,

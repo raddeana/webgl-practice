@@ -57,6 +57,7 @@ function main() {
 
     // Asynchronously load an image
     const image = new Image();
+    image.crossOrigin = '';
     image.src = url;
     image.addEventListener('load', function() {
       // Now that the image has loaded make copy it to the texture.
