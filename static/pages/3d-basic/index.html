@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>3D-BASIC</title>
+        <link rel="stylesheet" href="https://raddeana-libs.oss-cn-hangzhou.aliyuncs.com/extra/normalize.min.css" type="text/css">
+        <style>
+            canvas {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+        <script id="vertex-shader" type="x-shader/x-vertex">
+            attribute vec4 a_position;
+
+            void main() {
+              gl_Position = a_position;
+            }
+        </script>
+        <script id="fragment-shader" type="x-shader/x-fragment">
+            precision mediump float;
+
+            void main () {
+              gl_FragColor = vec4(0.2, 0.7, 0.2, 1); // return redish-purple
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <script src="/libs/webgl-utils.js"></script>
+        <script src="/libs/m4.js"></script>
+        <script src="/libs/primitives.js"></script>
+        <script src="/libs/texture-utils.js"></script>
+        <script src="/libs/chroma.min.js"></script>
+        <script src="./index.js"></script>
+    </body>
+</html>

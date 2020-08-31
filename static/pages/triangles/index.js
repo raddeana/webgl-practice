@@ -22,7 +22,7 @@ function main () {
     var bufferInfo = webglUtils.createBufferInfoFromArrays(gl, arrays);
 
     // setup GLSL program
-    var program = webglUtils.createProgramFromScripts(gl, ["3d-vertex-shader", "3d-fragment-shader"]);
+    var program = webglUtils.createProgramFromScripts(gl, ["vertex-shader", "fragment-shader"]);
     var uniformSetters = webglUtils.createUniformSetters(gl, program);
     var attribSetters  = webglUtils.createAttributeSetters(gl, program);
 
@@ -60,15 +60,15 @@ function main () {
     };
 
     var textures = [
-        textureUtils.makeStripeTexture(gl, { 
+        textureUtils.makeStripeTexture(gl, {
             color1: "#FFF", 
             color2: "#CCC", 
         }),
-        textureUtils.makeCheckerTexture(gl, { 
+        textureUtils.makeCheckerTexture(gl, {
             color1: "#FFF", 
             color2: "#CCC", 
         }),
-        textureUtils.makeCircleTexture(gl, { 
+        textureUtils.makeCircleTexture(gl, {
             color1: "#FFF", 
             color2: "#CCC", 
         }),
