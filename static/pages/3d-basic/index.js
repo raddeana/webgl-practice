@@ -34,16 +34,16 @@ function createProgram (gl, vertexShader, fragmentShader) {
 
 function main () {
   // Get A WebGL context
-  let canvas = document.getElementById("basic");
-  let gl = canvas.getContext("webgl");
+  let canvas = document.getElementById("canvas");
+  let gl = canvas.getContext("webgl2");
   
   if (!gl) {
     return;
   }
 
   // Get the strings for our GLSL shaders
-  let vertexShaderSource = document.getElementById("2d-vertex-shader").text;
-  let fragmentShaderSource = document.getElementById("2d-fragment-shader").text;
+  let vertexShaderSource = document.getElementById("vertex-shader").text;
+  let fragmentShaderSource = document.getElementById("fragment-shader").text;
 
   // create GLSL shaders, upload the GLSL source, compile the shaders
   let vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);

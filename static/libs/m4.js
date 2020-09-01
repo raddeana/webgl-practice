@@ -601,7 +601,7 @@
    * @return {Matrix4} dst or a new matrix if none provided
    * @memberOf module:webgl-3d-math
    */
-  function xRotation(angleInRadians, dst) {
+  function xRotation (angleInRadians, dst) {
     dst = dst || new MatType(16);
     var c = Math.cos(angleInRadians);
     var s = Math.sin(angleInRadians);
@@ -634,7 +634,7 @@
    * @return {Matrix4} dst or a new matrix if none provided
    * @memberOf module:webgl-3d-math
    */
-  function xRotate(m, angleInRadians, dst) {
+  function xRotate (m, angleInRadians, dst) {
     // this is the optimized version of
     // return multiply(m, xRotation(angleInRadians), dst);
     dst = dst || new MatType(16);

@@ -121,13 +121,14 @@
    *        on error. If you want something else pass an callback. It's passed an error message.
    * @memberOf module:webgl-utils
    */
-  function createProgram(
-      gl, shaders, opt_attribs, opt_locations, opt_errorCallback) {
+  function createProgram(gl, shaders, opt_attribs, opt_locations, opt_errorCallback) {
     const errFn = opt_errorCallback || error;
     const program = gl.createProgram();
-    shaders.forEach(function(shader) {
+    
+    shaders.forEach(function (shader) {
       gl.attachShader(program, shader);
     });
+
     if (opt_attribs) {
       opt_attribs.forEach(function(attrib, ndx) {
         gl.bindAttribLocation(
@@ -136,10 +137,12 @@
             attrib);
       });
     }
+
     gl.linkProgram(program);
 
     // Check the link status
     const linked = gl.getProgramParameter(program, gl.LINK_STATUS);
+
     if (!linked) {
         // something went wrong with the link
         const lastError = gl.getProgramInfoLog(program);
@@ -148,6 +151,7 @@
         gl.deleteProgram(program);
         return null;
     }
+
     return program;
   }
 
@@ -160,14 +164,15 @@
    * @param {module:webgl-utils.ErrorCallback} opt_errorCallback callback for errors.
    * @return {WebGLShader} The created shader.
    */
-  function createShaderFromScript(
-      gl, scriptId, opt_shaderType, opt_errorCallback) {
+  function createShaderFromScript (gl, scriptId, opt_shaderType, opt_errorCallback) {
     let shaderSource = '';
     let shaderType;
     const shaderScript = document.getElementById(scriptId);
+
     if (!shaderScript) {
       throw ('*** Error: unknown script element' + scriptId);
     }
+
     shaderSource = shaderScript.text;
 
     if (!opt_shaderType) {
