@@ -1,45 +1,45 @@
 <head>
-    <head>
-        <title>曙光计划</title>
-        <style>
-            body {
-                margin: 0;
-            }
+  <head>
+    <title>曙光计划</title>
+    <style>
+      body {
+          margin: 0;
+      }
 
-            #canvas {
-                width: 400px;
-                height: 400px;
-            }
-        </style>
-    </head>
-    <body>
-        <canvas id="canvas"></canvas>
-        <script id="2d-vertex-shader" type="notjs">
-            attribute vec4 a_position;
-            varying vec4 v_position;
-            
-            void main () {
-                gl_Position = a_position;
-                v_position = a_position;
-            }
-        </script>
-        <script id="2d-fragment-shader" type="notjs">
-            precision highp float;
-            precision highp int;
+      #canvas {
+          width: 400px;
+          height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script id="2d-vertex-shader" type="x-shader/x-vertex">
+      attribute vec4 a_position;
+      varying vec4 v_position;
+      
+      void main () {
+        gl_Position = a_position;
+        v_position = a_position;
+      }
+    </script>
+    <script id="2d-fragment-shader" type="x-shader/x-vertex">
+      precision highp float;
+      precision highp int;
 
-            varying vec4 v_position;
-            
-            void main() {
-                float opacity = 0.;
+      varying vec4 v_position;
+      
+      void main () {
+        float opacity = 0.5;
 
-                if (gl_FragCoord.y == v_position.y || gl_FragCoord.x == v_position.x) {
-                    opacity = 1.0;
-                }
+        if (gl_FragCoord.y == v_position.y || gl_FragCoord.x == v_position.x) {
+          opacity = 1.0;
+        }
 
-                gl_FragColor = vec4(1, 0, 0.5, opacity);
-            }
-        </script>
-        <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
-        <script src="./index.js"></script>
-    </body>
+        gl_FragColor = vec4(1, 0, 0.5, opacity);
+      }
+    </script>
+    <script src="/libs/webgl-utils.js"></script>
+    <script src="./index.js"></script>
+  </body>
 </head>

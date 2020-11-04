@@ -16,10 +16,8 @@
     </head>
     <body>
         <canvas id="canvas"></canvas>
-        <script 
-            id="3d-vertex-shader" 
-            type="x-shader/x-vertex"
-        >
+        <!-- vertex shader -->
+        <script id="3d-vertex-shader" type="x-shader/x-vertex">
             uniform mat4 u_worldViewProjection;
             uniform vec3 u_lightWorldPos;
             uniform mat4 u_world;
@@ -46,10 +44,7 @@
             }
         </script>
         <!-- fragment shader -->
-        <script 
-            id="3d-fragment-shader" 
-            type="x-shader/x-fragment"
-        >
+        <script id="3d-fragment-shader" type="x-shader/x-fragment">
             precision mediump float;
 
             varying vec4 v_position;
@@ -85,11 +80,11 @@
                 //  gl_FragColor = vec4(litR.yyy, 1);
             }
         </script>
-        <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
-        <script src="https://webglfundamentals.org/webgl/resources/m4.js"></script>
-        <script src="https://webglfundamentals.org/webgl/resources/primitives.js"></script>
-        <script src="https://webglfundamentals.org/webgl/resources/texture-utils.js"></script>
-        <script src="https://webglfundamentals.org/webgl/resources/chroma.min.js"></script>
+        <script src="/libs/webgl-utils.js"></script>
+        <script src="/libs/3d-math.js"></script>
+        <script src="/libs/primitives.js"></script>
+        <script src="/libs/texture-utils.js"></script>
+        <script src="/libs/chroma.min.js"></script>
         <script src="./index.js"></script>
     </body>
 </html>

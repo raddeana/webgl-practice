@@ -121,7 +121,7 @@
    *        on error. If you want something else pass an callback. It's passed an error message.
    * @memberOf module:webgl-utils
    */
-  function createProgram(gl, shaders, opt_attribs, opt_locations, opt_errorCallback) {
+  function createProgram (gl, shaders, opt_attribs, opt_locations, opt_errorCallback) {
     const errFn = opt_errorCallback || error;
     const program = gl.createProgram();
     
@@ -131,10 +131,7 @@
 
     if (opt_attribs) {
       opt_attribs.forEach(function(attrib, ndx) {
-        gl.bindAttribLocation(
-            program,
-            opt_locations ? opt_locations[ndx] : ndx,
-            attrib);
+        gl.bindAttribLocation(program, opt_locations ? opt_locations[ndx] : ndx, attrib);
       });
     }
 
@@ -769,7 +766,7 @@
    *     found.
    * @memberOf module:webgl-utils
    */
-  function getExtensionWithKnownPrefixes(gl, name) {
+  function getExtensionWithKnownPrefixes (gl, name) {
     for (let ii = 0; ii < browserPrefixes.length; ++ii) {
       const prefixedName = browserPrefixes[ii] + name;
       const ext = gl.getExtension(prefixedName);
@@ -788,15 +785,19 @@
    * @return {boolean} true if the canvas was resized.
    * @memberOf module:webgl-utils
    */
-  function resizeCanvasToDisplaySize(canvas, multiplier) {
+  function resizeCanvasToDisplaySize (canvas, multiplier) {
     multiplier = multiplier || 1;
+
     const width  = canvas.clientWidth  * multiplier | 0;
     const height = canvas.clientHeight * multiplier | 0;
+
     if (canvas.width !== width ||  canvas.height !== height) {
       canvas.width  = width;
       canvas.height = height;
+
       return true;
     }
+
     return false;
   }
 
@@ -808,6 +809,7 @@
     typedArray.push = function() {
       for (let ii = 0; ii < arguments.length; ++ii) {
         const value = arguments[ii];
+
         if (value instanceof Array || (value.buffer && value.buffer instanceof ArrayBuffer)) {
           for (let jj = 0; jj < value.length; ++jj) {
             typedArray[cursor++] = value[jj];
@@ -1290,7 +1292,7 @@
    * @param {DrawObject[]} objectsToDraw an array of objects to draw.
    * @memberOf module:webgl-utils
    */
-  function drawObjectList(gl, objectsToDraw) {
+  function drawObjectList (gl, objectsToDraw) {
     let lastUsedProgramInfo = null;
     let lastUsedBufferInfo = null;
 
@@ -1319,7 +1321,7 @@
     });
   }
 
-  function glEnumToString(gl, v) {
+  function glEnumToString (gl, v) {
     const results = [];
     for (const key in gl) {
       if (gl[key] === v) {
@@ -1352,23 +1354,23 @@
   }
 
   return {
-    createAugmentedTypedArray: createAugmentedTypedArray,
-    createAttribsFromArrays: createAttribsFromArrays,
-    createBuffersFromArrays: createBuffersFromArrays,
-    createBufferInfoFromArrays: createBufferInfoFromArrays,
-    createAttributeSetters: createAttributeSetters,
-    createProgram: createProgram,
-    createProgramFromScripts: createProgramFromScripts,
-    createProgramFromSources: createProgramFromSources,
-    createProgramInfo: createProgramInfo,
-    createUniformSetters: createUniformSetters,
-    createVAOAndSetAttributes: createVAOAndSetAttributes,
-    createVAOFromBufferInfo: createVAOFromBufferInfo,
-    drawBufferInfo: drawBufferInfo,
-    drawObjectList: drawObjectList,
-    glEnumToString: glEnumToString,
-    getExtensionWithKnownPrefixes: getExtensionWithKnownPrefixes,
-    resizeCanvasToDisplaySize: resizeCanvasToDisplaySize,
+    createAugmentedTypedArray,
+    createAttribsFromArrays,
+    createBuffersFromArrays,
+    createBufferInfoFromArrays,
+    createAttributeSetters,
+    createProgram,
+    createProgramFromScripts,
+    createProgramFromSources,
+    createProgramInfo,
+    createUniformSetters,
+    createVAOAndSetAttributes,
+    createVAOFromBufferInfo,
+    drawBufferInfo,
+    drawObjectList,
+    glEnumToString,
+    getExtensionWithKnownPrefixes,
+    resizeCanvasToDisplaySize,
     setAttributes: setAttributes,
     setBuffersAndAttributes: setBuffersAndAttributes,
     setUniforms: setUniforms,
